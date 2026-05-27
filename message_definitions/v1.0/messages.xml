@@ -2050,7 +2050,27 @@
       <field name="commands" type="int32[]">Commands send to actuators</field>
     </message>
 
-    <!-- 212 is free -->
+    <message name="STAB_MFC" id="212">
+      <field name="sp_phi"    type="float" unit="rad" alt_unit_coef="57.29578">roll setpoint</field>
+      <field name="sp_theta"  type="float" unit="rad" alt_unit_coef="57.29578">pitch setpoint</field>
+      <field name="sp_psi"    type="float" unit="rad" alt_unit_coef="57.29578">yaw setpoint</field>
+      <field name="me_phi"    type="float" unit="rad" alt_unit_coef="57.29578">roll measurement</field>
+      <field name="me_theta"  type="float" unit="rad" alt_unit_coef="57.29578">pitch measurement</field>
+      <field name="me_psi"    type="float" unit="rad" alt_unit_coef="57.29578">yaw measurement</field>
+      <field name="err_phi"   type="float" unit="rad" alt_unit_coef="57.29578">roll error</field>
+      <field name="err_theta" type="float" unit="rad" alt_unit_coef="57.29578">pitch error</field>
+      <field name="err_psi"   type="float" unit="rad" alt_unit_coef="57.29578">yaw error</field>
+      <field name="fk_phi"    type="float">F_k roll disturbance estimate</field>
+      <field name="fk_theta"  type="float">F_k pitch disturbance estimate</field>
+      <field name="fk_psi"    type="float">F_k yaw disturbance estimate</field>
+      <field name="cmd_phi"   type="float">virtual roll command pre-WLS</field>
+      <field name="cmd_theta" type="float">virtual pitch command pre-WLS</field>
+      <field name="cmd_psi"   type="float">virtual yaw command pre-WLS</field>
+      <field name="u0"        type="float">motor NE output</field>
+      <field name="u1"        type="float">motor SE output</field>
+      <field name="u2"        type="float">motor SW output</field>
+      <field name="u3"        type="float">motor NW output</field>
+    </message>
 
     <message name="TUNE_VERT" id="213">
       <field name="z_sp"      type="int32" alt_unit="m"    alt_unit_coef="0.0039063"/>
