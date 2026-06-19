@@ -1902,7 +1902,18 @@
       <field name="mz"    type="float" />
     </message>
 
-    <!-- 194 is free -->
+    <!-- Dual-controller (MFC+INDI co-compile) shadow comparison.
+         active  : which law drives the motors (0=INDI, 1=MFC)
+         cmd_act : committed command of the active law (drives the motors), per command slot
+         cmd_shd : command of the inert shadow law (computed, never committed), per command slot
+         resid   : cmd_shd - cmd_act, per command slot — the agreement band to validate -->
+    <message name="DUAL_CTRL" id="194">
+      <field name="active"   type="uint8"  unit="none"/>
+      <field name="cmd_act"  type="int32[]" unit="pprz"/>
+      <field name="cmd_shd"  type="int32[]" unit="pprz"/>
+      <field name="resid"    type="int32[]" unit="pprz"/>
+    </message>
+
     <!-- 195 is free -->
 
     <message name="AIRSPEED_WIND_ESTIMATOR_EKF" id="196">
