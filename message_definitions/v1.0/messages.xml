@@ -1914,7 +1914,19 @@
       <field name="resid"    type="int32[]" unit="pprz"/>
     </message>
 
-    <!-- 195 is free -->
+    <!-- Dual-controller (MFC+INDI co-compile) GUIDANCE comparison.
+         active     : which guidance law is committed (0=INDI, 1=MFC)
+         indi_att   : INDI guidance attitude setpoint [phi, theta, psi] (rad)
+         mfc_att    : MFC  guidance attitude setpoint [phi, theta, psi] (rad)
+         indi_thrust: INDI guidance thrust setpoint (z axis, native units)
+         mfc_thrust : MFC  guidance thrust setpoint (z axis, native units) -->
+    <message name="GUIDANCE_DUAL" id="195">
+      <field name="active"      type="uint8"   unit="none"/>
+      <field name="indi_att"    type="float[]" unit="rad"/>
+      <field name="mfc_att"     type="float[]" unit="rad"/>
+      <field name="indi_thrust" type="float"   unit="none"/>
+      <field name="mfc_thrust"  type="float"   unit="none"/>
+    </message>
 
     <message name="AIRSPEED_WIND_ESTIMATOR_EKF" id="196">
       <field name="u_est"     type="float" unit="m/s"/>
@@ -2081,6 +2093,24 @@
       <field name="u1"        type="float">motor SE output</field>
       <field name="u2"        type="float">motor SW output</field>
       <field name="u3"        type="float">motor NW output</field>
+    </message>
+
+    <message name="GUIDANCE_MFC" id="57">
+      <field name="sp_x"    type="float" unit="m">North position setpoint</field>
+      <field name="sp_y"    type="float" unit="m">East position setpoint</field>
+      <field name="sp_z"    type="float" unit="m">Down position setpoint</field>
+      <field name="me_x"    type="float" unit="m">North position measurement</field>
+      <field name="me_y"    type="float" unit="m">East position measurement</field>
+      <field name="me_z"    type="float" unit="m">Down position measurement</field>
+      <field name="err_x"   type="float" unit="m">North position error</field>
+      <field name="err_y"   type="float" unit="m">East position error</field>
+      <field name="err_z"   type="float" unit="m">Down position error</field>
+      <field name="fk_x"    type="float">F_k North disturbance estimate</field>
+      <field name="fk_y"    type="float">F_k East disturbance estimate</field>
+      <field name="fk_z"    type="float">F_k Down disturbance estimate</field>
+      <field name="cmd_x"   type="float" unit="m/s2">North acceleration command</field>
+      <field name="cmd_y"   type="float" unit="m/s2">East acceleration command</field>
+      <field name="cmd_z"   type="float">vertical thrust command</field>
     </message>
 
     <message name="TUNE_VERT" id="213">
