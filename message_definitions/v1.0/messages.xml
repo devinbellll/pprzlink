@@ -2093,6 +2093,9 @@
       <field name="u1"        type="float">motor SE output</field>
       <field name="u2"        type="float">motor SW output</field>
       <field name="u3"        type="float">motor NW output</field>
+      <field name="sp_traj_phi"   type="float" unit="rad" alt_unit_coef="57.29578">roll trajectory setpoint</field>
+      <field name="sp_traj_theta" type="float" unit="rad" alt_unit_coef="57.29578">pitch trajectory setpoint</field>
+      <field name="sp_traj_psi"   type="float" unit="rad" alt_unit_coef="57.29578">yaw trajectory setpoint</field>
     </message>
 
     <message name="GUIDANCE_MFC" id="57">
@@ -2111,6 +2114,24 @@
       <field name="cmd_x"   type="float" unit="m/s2">North acceleration command</field>
       <field name="cmd_y"   type="float" unit="m/s2">East acceleration command</field>
       <field name="cmd_z"   type="float">vertical thrust command</field>
+      <field name="sp_traj_x" type="float" unit="m">North trajectory setpoint</field>
+      <field name="sp_traj_y" type="float" unit="m">East trajectory setpoint</field>
+      <field name="sp_traj_z" type="float" unit="m">Down trajectory setpoint</field>
+    </message>
+
+    <!-- DEBUG/TEMPORARY: MFC guidance acc-to-attitude conversion internals.
+         Flagged for removal once the acc2att path is validated. -->
+    <message name="GUIDANCE_MFC_ACC2ATT" id="51">
+      <field name="u1"           type="float">vertical accel command (u1)</field>
+      <field name="vhatx"        type="float">x accel estimate</field>
+      <field name="vhaty"        type="float">y accel estimate</field>
+      <field name="phi_d"        type="float">desired roll</field>
+      <field name="theta_d"      type="float">desired pitch</field>
+      <field name="cosphid"      type="float">cos(phi_d)</field>
+      <field name="vhaty_cd"     type="float">vhaty / cos(phi_d)</field>
+      <field name="att_sp_phi"   type="float" unit="rad" alt_unit_coef="57.29578">attitude setpoint roll</field>
+      <field name="att_sp_theta" type="float" unit="rad" alt_unit_coef="57.29578">attitude setpoint pitch</field>
+      <field name="att_sp_psi"   type="float" unit="rad" alt_unit_coef="57.29578">attitude setpoint yaw</field>
     </message>
 
     <message name="TUNE_VERT" id="213">
