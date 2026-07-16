@@ -1902,32 +1902,6 @@
       <field name="mz"    type="float" />
     </message>
 
-    <!-- Dual-controller (MFC+INDI co-compile) shadow comparison.
-         active  : which law drives the motors (0=INDI, 1=MFC)
-         cmd_act : committed command of the active law (drives the motors), per command slot
-         cmd_shd : command of the inert shadow law (computed, never committed), per command slot
-         resid   : cmd_shd - cmd_act, per command slot — the agreement band to validate -->
-    <message name="DUAL_CTRL" id="194">
-      <field name="active"   type="uint8"  unit="none"/>
-      <field name="cmd_act"  type="int32[]" unit="pprz"/>
-      <field name="cmd_shd"  type="int32[]" unit="pprz"/>
-      <field name="resid"    type="int32[]" unit="pprz"/>
-    </message>
-
-    <!-- Dual-controller (MFC+INDI co-compile) GUIDANCE comparison.
-         active     : which guidance law is committed (0=INDI, 1=MFC)
-         indi_att   : INDI guidance attitude setpoint [phi, theta, psi] (rad)
-         mfc_att    : MFC  guidance attitude setpoint [phi, theta, psi] (rad)
-         indi_thrust: INDI guidance thrust setpoint (z axis, native units)
-         mfc_thrust : MFC  guidance thrust setpoint (z axis, native units) -->
-    <message name="GUIDANCE_DUAL" id="195">
-      <field name="active"      type="uint8"   unit="none"/>
-      <field name="indi_att"    type="float[]" unit="rad"/>
-      <field name="mfc_att"     type="float[]" unit="rad"/>
-      <field name="indi_thrust" type="float"   unit="none"/>
-      <field name="mfc_thrust"  type="float"   unit="none"/>
-    </message>
-
     <message name="AIRSPEED_WIND_ESTIMATOR_EKF" id="196">
       <field name="u_est"     type="float" unit="m/s"/>
       <field name="v_est"     type="float" unit="m/s"/>
